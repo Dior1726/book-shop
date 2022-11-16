@@ -121,7 +121,7 @@ a {
   gap: 20px;
 }
 
-.book-item__action .button {
+.button {
   padding: 10px 20px;
   transition: all .2s ease;
   border-radius: 8px;
@@ -130,7 +130,6 @@ a {
 
 .book-item__add {
   background: var(--indigo-400);
-  border: transparent;
   color: var(--white);
   border: 1px solid var(--indigo-400);
 }
@@ -148,4 +147,87 @@ a {
 .book-item__description:hover {
   background: var(--indigo-400);
   color: var(--white);
+}
+
+/* Modal  */
+.modal-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, .5);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  background: white;
+  border-radius: 16px;
+  max-width: 600px;
+  padding: 20px;
+}
+
+.modal-header {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  color: var(--indigo-400);
+}
+
+.modal-content {
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 300;
+}
+
+.close {
+  margin-top: 20px;
+  background: var(--indigo-400);
+  color: var(--white);
+  border: 1px solid var(--indigo-400);
+}
+
+.close:hover {
+  background: var(--indigo-500);
+}
+
+/* Form */
+
+.form {
+  max-width: 600px;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 40px auto;
+  background: white;
+  box-shadow: 4px 4px 10px var(--indigo-200);
+}
+
+.form .form-control {
+  width: 70%;
+  margin: 20px auto;
+}
+
+.form .input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  outline: none;
+  border: 1px solid var(--indigo-400);
+  color: var(--indigo-400);
+  font-weight: 500;
+}
+
+.form-button {
+  display: flex;
+  justify-content: center;
+}
+
+.form-button .button {
+  background: var(--indigo-400);
+  border: transparent;
+  color: white;
 }

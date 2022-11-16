@@ -62,6 +62,10 @@ function createBookCatalog() {
         action.className = 'book-item__action'
         desctiptionBtn.className = 'button book-item__description'
         addToCartBtn.className = 'button book-item__add'
+
+        desctiptionBtn.addEventListener('click', () => {
+          createDescriptionModal(el)
+        })
         
         img.src = el.imageLink
         img.alt = el.title
@@ -91,3 +95,34 @@ function createBookCatalog() {
   body.appendChild(main)
 }
 createBookCatalog()
+
+function createDescriptionModal(book) {
+  const wrapper = document.createElement('div')
+  const modal = document.createElement('div')  
+  const modalHeader = document.createElement('header')
+  const modalContent = document.createElement('div')
+  const closeBtn = document.createElement('button')
+
+  wrapper.className = 'modal-wrapper'
+  modal.className = 'modal'
+  modalHeader.className = 'modal-header'
+  modalContent.className = 'modal-content'
+  closeBtn.className = 'button close'
+
+  modalHeader.innerText = book.title
+  modalContent.innerText = book.description
+  closeBtn.innerText = 'Close'
+
+  closeBtn.addEventListener('click', hideModal)
+
+  modal.appendChild(modalHeader)
+  modal.appendChild(modalContent)
+  modal.appendChild(closeBtn)
+  wrapper.appendChild(modal)
+  body.appendChild(wrapper)
+}
+
+function hideModal() {
+  const modal = document.querySelector('.modal-wrapper')
+  modal.remove()
+}
