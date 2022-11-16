@@ -40,19 +40,31 @@ function createBookCatalog() {
     .then((res) => {
       res.forEach(el => {
         const bookItem = document.createElement('div')
+        const content = document.createElement('div')
         const img = document.createElement('img')
         const bookTitle = document.createElement('h6')
+        const author = document.createElement('p')
+        const price = document.createElement('p')
 
         bookItem.className = 'book-item'
+        content.className = 'book-item__content'
         bookTitle.classList = 'book-item__title'
         img.className = 'book-item__img'
+        author.classList = 'book-item__author'
+        price.classList = 'book-item__price'
         
-        bookTitle.innerText = el.title
         img.src = el.imageLink
         img.alt = el.title
+        bookTitle.innerText = el.title
+        author.innerText = el.author
+        price.innerText = el.price
         
+        content.appendChild(bookTitle)
+        content.appendChild(author)
+        content.appendChild(price)
+
         bookItem.appendChild(img)
-        bookItem.appendChild(bookTitle)
+        bookItem.appendChild(content)
         bookWrapper.appendChild(bookItem)
       });
     })
