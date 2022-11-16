@@ -40,8 +40,19 @@ function createBookCatalog() {
     .then((res) => {
       res.forEach(el => {
         const bookItem = document.createElement('div')
+        const img = document.createElement('img')
+        const bookTitle = document.createElement('h6')
+
         bookItem.className = 'book-item'
-        bookItem.innerText = el.title
+        bookTitle.classList = 'book-item__title'
+        img.className = 'book-item__img'
+        
+        bookTitle.innerText = el.title
+        img.src = el.imageLink
+        img.alt = el.title
+        
+        bookItem.appendChild(img)
+        bookItem.appendChild(bookTitle)
         bookWrapper.appendChild(bookItem)
       });
     })

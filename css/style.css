@@ -61,20 +61,32 @@ a {
   padding: 20px;
 }
 
-.main .book-wrapper {
+.book-wrapper {
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-.main .book-item {
+.book-item {
   padding: 20px;
   border-radius: 12px;
   background: var(--white);
-  min-width: 300px;
-  max-width: 350px;
+  min-width: 350px;
+  max-width: 400px;
   flex: 1;
-  height: 300px;
   box-shadow: 2px 2px 6px var(--indigo-200);
+
+  display: flex;
+  gap: 10px;
+}
+
+.book-item__title {
+  flex: 1;
+  font-size: 18px;
+}
+
+.book-item__img {
+  width: 150px;
+  height: auto;
 }
