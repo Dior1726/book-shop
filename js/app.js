@@ -33,8 +33,12 @@ createHeader()
 
 function createBookCatalog() {
   const bookWrapper = document.createElement('div')
+  const catalogTitle = document.createElement('h2')
   
+  catalogTitle.className = 'title'
   bookWrapper.className = 'book-wrapper'
+
+  catalogTitle.innerText = 'Our Catalog'
 
   getBooks()
     .then((res) => {
@@ -45,6 +49,9 @@ function createBookCatalog() {
         const bookTitle = document.createElement('h6')
         const author = document.createElement('p')
         const price = document.createElement('p')
+        const action = document.createElement('div')
+        const desctiptionBtn = document.createElement('button')
+        const addToCartBtn = document.createElement('button')
 
         bookItem.className = 'book-item'
         content.className = 'book-item__content'
@@ -52,16 +59,25 @@ function createBookCatalog() {
         img.className = 'book-item__img'
         author.classList = 'book-item__author'
         price.classList = 'book-item__price'
+        action.className = 'book-item__action'
+        desctiptionBtn.className = 'button book-item__description'
+        addToCartBtn.className = 'button book-item__add'
         
         img.src = el.imageLink
         img.alt = el.title
         bookTitle.innerText = el.title
         author.innerText = el.author
-        price.innerText = el.price
+        price.innerText = `Price: $${el.price}`
+        desctiptionBtn.innerText = 'Show more'
+        addToCartBtn.innerText = 'Add'
+
+        action.appendChild(desctiptionBtn)
+        action.appendChild(addToCartBtn)
         
         content.appendChild(bookTitle)
         content.appendChild(author)
         content.appendChild(price)
+        content.appendChild(action)
 
         bookItem.appendChild(img)
         bookItem.appendChild(content)
@@ -69,7 +85,8 @@ function createBookCatalog() {
       });
     })
     .catch((err) => alert(err))
-
+  
+  main.appendChild(catalogTitle)
   main.appendChild(bookWrapper)
   body.appendChild(main)
 }
