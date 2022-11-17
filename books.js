@@ -1,4 +1,4 @@
-[
+const booksList = [
   {
     "id": 30,
     "author": "Douglas Crockford",
