@@ -19,10 +19,10 @@ function createHeader() {
   logo.innerText = 'Book-Shop'
   welcomeText.innerText = 'Welcome to amazing book shop!'
   links.className = 'header-links'
-  cartLink.href = '/bag.html'
+  cartLink.href = './bag.html'
   cartLink.className = 'link'
   cartIcon.className = 'bx bx-cart'
-  storeLink.href = '/index.html'
+  storeLink.href = './index.html'
   storeLink.className = 'link'
   storeIcon.className = 'bx bx-store-alt'
   

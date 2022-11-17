@@ -117,7 +117,7 @@ function createTotalBlock() {
   totalWrapper.className = 'total-wrapper'
   total.className = 'total'
   orderBtn.className = 'button order-btn'
-  orderBtn.href = '/form.html'
+  orderBtn.href = './form.html'
 
   total.innerText = `Total: $0`
   orderBtn.innerText = 'Order'
