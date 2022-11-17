@@ -54,7 +54,14 @@ a {
   align-items: center;
 }
 
-.cart-link {
+.header-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.link {
   color: var(--white);
   width: 34px;
   height: 34px;
@@ -297,4 +304,5 @@ a {
   border: transparent;
   color: white;
   font-size: 20px;
+  box-shadow: 2px 2px 8px var(--indigo-200);
 }
