@@ -38,69 +38,36 @@ function createHeader() {
 }
 createHeader()
 
-function createBookCatalog() {
-  const bookWrapper = document.createElement('div')
-  const catalogTitle = document.createElement('h2')
-  let books = localStorage.getItem('books')
-  books = JSON.parse(books)
+function createHeader() {
+  const logo = document.createElement('h1')
+  const welcomeText = document.createElement('p')
+  const links = document.createElement('div')
+  const cartLink = document.createElement('a')
+  const cartIcon = document.createElement('i')
+  const storeLink = document.createElement('a')
+  const storeIcon = document.createElement('i')
+
+  logo.innerText = 'Book-Shop'
+  welcomeText.innerText = 'Welcome to amazing book shop!'
+  links.className = 'header-links'
+  cartLink.href = './bag.html'
+  cartLink.className = 'link'
+  cartIcon.className = 'bx bx-cart'
+  storeLink.href = './index.html'
+  storeLink.className = 'link'
+  storeIcon.className = 'bx bx-store-alt'
   
-  catalogTitle.className = 'title'
-  bookWrapper.className = 'book-wrapper'
-  catalogTitle.innerText = 'Your Orders'
-
-  if (books.length) {
-    books.forEach(el => {
-      const bookItem = document.createElement('div')
-      const content = document.createElement('div')
-      const img = document.createElement('img')
-      const bookTitle = document.createElement('h6')
-      const author = document.createElement('p')
-      const price = document.createElement('p')
-      const action = document.createElement('div')
-      const deleteBtn = document.createElement('button')
-      const trashIcon = document.createElement('i')
-
-      bookItem.className = 'book-item'
-      bookItem.dataset.id = el.id
-      content.className = 'book-item__content'
-      bookTitle.classList = 'book-item__title'
-      img.className = 'book-item__img'
-      author.classList = 'book-item__author'
-      price.classList = 'book-item__price'
-      action.className = 'book-item__action'
-      deleteBtn.className = 'button book-item__delete'
-      trashIcon.className = 'bx bx-trash'
-
-      deleteBtn.addEventListener('click', () => {
-        deleteFromCart(el.id)
-      })
-      
-      img.src = el.imageLink
-      img.alt = el.title
-      bookTitle.innerText = el.title
-      author.innerText = el.author
-      price.innerText = `Price: $${el.price}`
-      
-      deleteBtn.appendChild(trashIcon)
-      action.appendChild(deleteBtn)
-      content.appendChild(bookTitle)
-      content.appendChild(author)
-      content.appendChild(price)
-      content.appendChild(action)
-
-      bookItem.appendChild(img)
-      bookItem.appendChild(content)
-      bookWrapper.appendChild(bookItem)
-    });
-  } else {
-    bookWrapper.innerText = 'Your don`t have any orders yet!'
-  }
-  
-  main.appendChild(catalogTitle)
-  main.appendChild(bookWrapper)
-  body.appendChild(main)
+  storeLink.appendChild(storeIcon)
+  cartLink.appendChild(cartIcon)
+  links.appendChild(storeLink)
+  links.appendChild(cartLink)
+  container.appendChild(logo)
+  container.appendChild(welcomeText)
+  container.appendChild(links)
+  header.appendChild(container)
+  body.appendChild(header)
 }
-createBookCatalog()
+createHeader()
 
 function deleteFromCart(id) {
   let books = localStorage.getItem('books')
