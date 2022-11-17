@@ -54,6 +54,26 @@ a {
   align-items: center;
 }
 
+.cart-link {
+  color: var(--white);
+  width: 34px;
+  height: 34px;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 4px var(--indigo-200);
+  transition: .2s ease;
+}
+
+.cart-link:hover {
+  box-shadow: 0 0 8px var(--indigo-200);
+}
+
+.cart-link i {
+  font-size: 22px;
+}
+
 .header h1 {
   font-size: 20px;
 }
@@ -82,6 +102,7 @@ a {
   background: var(--white);
   min-width: 400px;
   flex: 1;
+  max-width: 450px;
   box-shadow: 2px 2px 6px var(--indigo-200);
   transition: all .2s ease;
 
@@ -126,6 +147,7 @@ a {
   transition: all .2s ease;
   border-radius: 8px;
   cursor: pointer;
+  box-shadow: 2px 2px 6px var(--indigo-200);
 }
 
 .book-item__add {
@@ -139,7 +161,7 @@ a {
 }
 
 .book-item__description {
-  border: 1px solid var(--indigo-400);
+  border: 1px solid transparent;
   background: none;
   color: var(--indigo-400);
 }
@@ -147,6 +169,15 @@ a {
 .book-item__description:hover {
   background: var(--indigo-400);
   color: var(--white);
+}
+
+.book-item__delete {
+  border: none;
+  color: red;
+}
+
+.book-item__delete i {
+  font-size: 20px;
 }
 
 /* Modal  */
@@ -195,10 +226,19 @@ a {
   background: var(--indigo-500);
 }
 
-/* Form */
+/* form page */
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+}
 
 .form {
-  max-width: 600px;
+  max-width: 500px;
+  width: 100%;
   border-radius: 20px;
   padding: 20px;
   margin: 40px auto;
@@ -218,7 +258,7 @@ a {
   outline: none;
   border: 1px solid var(--indigo-400);
   color: var(--indigo-400);
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .form-button {
@@ -230,4 +270,31 @@ a {
   background: var(--indigo-400);
   border: transparent;
   color: white;
+}
+
+.form-button .button:hover {
+  background: var(--indigo-500);
+}
+
+/* Total */
+.total-wrapper {
+  padding: 20px 50px;
+  margin: 40px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--indigo-300);
+}
+
+.total {
+  color: var(--indigo-500);
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.order-btn {
+  background: var(--indigo-400);
+  border: transparent;
+  color: white;
+  font-size: 20px;
 }

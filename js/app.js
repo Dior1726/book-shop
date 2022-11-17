@@ -20,12 +20,19 @@ async function getBooks() {
 function createHeader() {
   const logo = document.createElement('h1')
   const welcomeText = document.createElement('p')
+  const cartLink = document.createElement('a')
+  const cartIcon = document.createElement('i')
 
   logo.innerText = 'Book-Shop'
   welcomeText.innerText = 'Welcome to amazing book shop!'
+  cartLink.href = '/bag.html'
+  cartLink.className = 'cart-link'
+  cartIcon.className = 'bx bx-cart'
   
+  cartLink.appendChild(cartIcon)
   container.appendChild(logo)
   container.appendChild(welcomeText)
+  container.appendChild(cartLink)
   header.appendChild(container)
   body.appendChild(header)
 }
@@ -65,6 +72,10 @@ function createBookCatalog() {
 
         desctiptionBtn.addEventListener('click', () => {
           createDescriptionModal(el)
+        })
+
+        addToCartBtn.addEventListener('click', () => {
+          addToCart(el)
         })
         
         img.src = el.imageLink
@@ -125,4 +136,22 @@ function createDescriptionModal(book) {
 function hideModal() {
   const modal = document.querySelector('.modal-wrapper')
   modal.remove()
+}
+
+function addToCart(el) {
+  let books = localStorage.getItem('books') 
+          
+  if (books) {
+    books = JSON.parse(books)
+    
+    if (books.filter(b => b.id === el.id).length > 0) {
+      alert('Fuck are you man')
+    } else {
+      books.push(el)
+      localStorage.setItem('books', JSON.stringify(books))
+    }
+  } else {
+    books = [el]
+    localStorage.setItem('books', JSON.stringify(books))
+  }
 }
