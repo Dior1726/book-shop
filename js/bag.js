@@ -48,49 +48,53 @@ function createBookCatalog() {
   bookWrapper.className = 'book-wrapper'
   catalogTitle.innerText = 'Your Orders'
 
-  books.forEach(el => {
-    const bookItem = document.createElement('div')
-    const content = document.createElement('div')
-    const img = document.createElement('img')
-    const bookTitle = document.createElement('h6')
-    const author = document.createElement('p')
-    const price = document.createElement('p')
-    const action = document.createElement('div')
-    const deleteBtn = document.createElement('button')
-    const trashIcon = document.createElement('i')
+  if (books.length) {
+    books.forEach(el => {
+      const bookItem = document.createElement('div')
+      const content = document.createElement('div')
+      const img = document.createElement('img')
+      const bookTitle = document.createElement('h6')
+      const author = document.createElement('p')
+      const price = document.createElement('p')
+      const action = document.createElement('div')
+      const deleteBtn = document.createElement('button')
+      const trashIcon = document.createElement('i')
 
-    bookItem.className = 'book-item'
-    bookItem.dataset.id = el.id
-    content.className = 'book-item__content'
-    bookTitle.classList = 'book-item__title'
-    img.className = 'book-item__img'
-    author.classList = 'book-item__author'
-    price.classList = 'book-item__price'
-    action.className = 'book-item__action'
-    deleteBtn.className = 'button book-item__delete'
-    trashIcon.className = 'bx bx-trash'
+      bookItem.className = 'book-item'
+      bookItem.dataset.id = el.id
+      content.className = 'book-item__content'
+      bookTitle.classList = 'book-item__title'
+      img.className = 'book-item__img'
+      author.classList = 'book-item__author'
+      price.classList = 'book-item__price'
+      action.className = 'book-item__action'
+      deleteBtn.className = 'button book-item__delete'
+      trashIcon.className = 'bx bx-trash'
 
-    deleteBtn.addEventListener('click', () => {
-      deleteFromCart(el.id)
-    })
-    
-    img.src = el.imageLink
-    img.alt = el.title
-    bookTitle.innerText = el.title
-    author.innerText = el.author
-    price.innerText = `Price: $${el.price}`
-    
-    deleteBtn.appendChild(trashIcon)
-    action.appendChild(deleteBtn)
-    content.appendChild(bookTitle)
-    content.appendChild(author)
-    content.appendChild(price)
-    content.appendChild(action)
+      deleteBtn.addEventListener('click', () => {
+        deleteFromCart(el.id)
+      })
+      
+      img.src = el.imageLink
+      img.alt = el.title
+      bookTitle.innerText = el.title
+      author.innerText = el.author
+      price.innerText = `Price: $${el.price}`
+      
+      deleteBtn.appendChild(trashIcon)
+      action.appendChild(deleteBtn)
+      content.appendChild(bookTitle)
+      content.appendChild(author)
+      content.appendChild(price)
+      content.appendChild(action)
 
-    bookItem.appendChild(img)
-    bookItem.appendChild(content)
-    bookWrapper.appendChild(bookItem)
-  });
+      bookItem.appendChild(img)
+      bookItem.appendChild(content)
+      bookWrapper.appendChild(bookItem)
+    });
+  } else {
+    bookWrapper.innerText = 'Your don`t have any orders yet!'
+  }
   
   main.appendChild(catalogTitle)
   main.appendChild(bookWrapper)
