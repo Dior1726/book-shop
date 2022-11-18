@@ -73,11 +73,11 @@ a {
   transition: .2s ease;
 }
 
-.cart-link:hover {
+.link:hover {
   box-shadow: 0 0 8px var(--indigo-200);
 }
 
-.cart-link i {
+.link i {
   font-size: 22px;
 }
 
