@@ -17,7 +17,7 @@ function createHeader() {
   const storeIcon = document.createElement('i')
 
   logo.innerText = 'Book-Shop'
-  welcomeText.innerText = 'Welcome to amazing book shop!'
+  welcomeText.innerText = 'Delivery Page'
   links.className = 'header-links'
   cartLink.href = './bag.html'
   cartLink.className = 'link'
