@@ -144,10 +144,12 @@ function addToCart(el) {
       alert('This book is exist')
     } else {
       books.push(el)
+      alert('Book is added!')
       localStorage.setItem('books', JSON.stringify(books))
     }
   } else {
     books = [el]
+    alert('Book is added!')
     localStorage.setItem('books', JSON.stringify(books))
   }
 }
